@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SmileConnect</title>
+    <style>
+        
+    </style>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #68e9f2, #1c99c7);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo Styling */
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Nav Links */
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links li {
+            display: inline-block;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #ff9800;
+        }
+
+        /* Hamburger Menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: #1ec6aa;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">phillhealthy</a>
+        <ul class="navbar-links" id="nav-links">
+            <a href="index.html" class="text-gray-700 hover:text-blue-900">Home</a>
+            <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
+            <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+            <a href="contribute.html" class="text-gray-700 hover:text-blue-900">Contribute</a>
+        </ul>
+        <div class="navbar-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+
+            menuToggle.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents immediate closure
+                navLinks.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+        });
+    </script>
+
+    
+
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-r from-blue-50 to-blue-100 py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">We're Here to Help!</h1>
+                <p class="text-xl text-blue-800 max-w-2xl mx-auto">
+                    Have questions about starting a campaign or making a donation? We're here to provide guidance and help you make a difference in someone's dental health.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+                    <form action="https://formspree.io/f/mdkazkzg" method="POST" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2"></i>Name
+                            </label>
+                            <input type="text" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">
+                                <i class="fas fa-envelope mr-2"></i>Email
+                            </label>
+                            <input type="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">
+                                <i class="fas fa-tag mr-2"></i>Inquiry Type
+                            </label>
+                            <select name="inquiry_type" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>Start a Campaign</option>
+                                <option>Make a Donation</option>
+                                <option>General Inquiry</option>
+                                <option>Technical Support</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">
+                                <i class="fas fa-comment mr-2"></i>Message
+                            </label>
+                            <textarea rows="4" name="message" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-xl font-bold mb-4">Other Ways to Reach Us</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-gray-600">Phone</p>
+                                    <a href="tel:+254790617211" class="text-blue-600 hover:text-blue-800">+254 790 617 211</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-gray-600">Email</p>
+                                    <a href="mailto:support@smileconnect.com" class="text-blue-600 hover:text-blue-800">spencemiles0@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Link -->
+                    <div class="bg-blue-50 rounded-lg p-8">
+                        <h3 class="text-xl font-bold mb-4">Need Quick Answers?</h3>
+                        <p class="text-gray-600 mb-4">Find immediate answers to common questions in our FAQ section.</p>
+                        <a href="/faq" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                            Visit our FAQ page
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social Media -->
+                    <!-- <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-900">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Footer -->
+ <footer class="bg-gray-900 py-12 border-t border-gray-800">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-cyan-400 mb-4">About Us</h3>
+                <p class="text-gray-400">Helping create healthy smiles through community support and modern dental care.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-cyan-400 mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://www.helpguide.org/" class="text-gray-400 hover:text-cyan-400">Health Guide</a></li>
+                    <li><a href="contribute.html" class="text-gray-400 hover:text-cyan-400">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-cyan-400 mb-4">Contact</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li>Nairobi, Kenya</li>
+                    <li>Email: spencemiles0@gmail.com</li>
+                </ul>
+            </div>
+            <!-- <div>
+                <h3 class="text-xl font-bold text-cyan-400 mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-twitter text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-facebook text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-instagram text-2xl"></i></a>
+                </div>
+            </div> -->
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800">
+            <p class="text-gray-400">&copy; 2023 Dental Care Fund. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    <!-- Live Chat Button -->
+    <div class="fixed bottom-8 right-8">
+        <a href="https://wa.me/254700000000" target="_blank" class="bg-green-500 text-white w-16 h-16 rounded-full shadow-lg hover:bg-green-600 transition duration-300 flex items-center justify-center">
+            <i class="fas fa-comments text-2xl"></i>
+        </a>
+    </div>
+    
+
+    <script>
+        function openChat() {
+            // Add chat functionality here
+            alert('Chat feature coming soon!');
+        }
+    </script>
+</body>
+</html>

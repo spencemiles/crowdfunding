@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Care Fundraiser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .neon-glow {
+            box-shadow: 0 0 10px rgba(1, 247, 243, 0.5),
+                        0 0 20px rgba(66, 220, 219, 0.3);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .gradient-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(6, 182, 212, 0.3));
+        }
+        .blog-image-overlay {
+            background: linear-gradient(45deg, rgba(6, 182, 212, 0.3), rgba(0, 0, 0, 0.7));
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #459998, #03c0ff);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo Styling */
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Nav Links */
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links li {
+            display: inline-block;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #ff9800;
+        }
+
+        /* Hamburger Menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: #217776;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">phillhealthy</a>
+        <ul class="navbar-links" id="nav-links">
+            <a href="index.html" class="text-gray-700 hover:text-blue-900">Home</a>
+            <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
+            <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+            <a href="contribute.html" class="text-gray-700 hover:text-blue-900">Contribute</a>
+        </ul>
+        <div class="navbar-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+
+            menuToggle.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents immediate closure
+                navLinks.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    
+
+    <!-- Hero Section -->
+    <header class="h-screen flex items-center justify-center parallax bg-cover bg-center" style="background: linear-gradient(45deg, rgba(88, 224, 245, 0.4), rgba(207, 250, 245, 0.3), rgba(74, 85, 104, 0.4)), url('https://friedmandentalgroup.com/wp-content/uploads/2023/10/Untitled-design17.png'); background-size: cover; background-position: center;">
+        <div class="text-center">
+            <div class="text-center">
+                <h1 class="gradient-text text-5xl md:text-7xl font-bold mb-8 drop-shadow-lg" data-aos="fade-up">
+                    Smile Transformation Fund
+                </h1>
+            </div>
+            
+
+            
+            <p class="text-xl mb-12 drop-shadow-lg" data-aos="fade-up" data-aos-delay="200" 
+               style="color: black; background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 8px;">
+                Together, we can restore a smile. Any amount is appreciated.
+            </p>
+        
+            <a href=" https://www.mchanga.africa/fundraiser/109959" class="bg-cyan-500 hover:bg-cyan-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 text-black hover:scale-105 hover:shadow-[0_0_25px_#42DCDB] neon-glow" data-aos="fade-up" data-aos-delay="400">
+                M-changa
+            </a>
+            <a href="contribute.html" class="bg-cyan-500 hover:bg-cyan-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 text-black hover:scale-105 hover:shadow-[0_0_25px_#42DCDB] neon-glow" data-aos="fade-up" data-aos-delay="400">
+                contribute
+            </a>
+        </div>
+        </div>
+    </header>
+
+    <!-- Progress Section -->
+    <!-- <section id="progress" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center">Fundraising Progress</h2>
+            <div class="bg-gray-700 rounded-full h-6 mb-8">
+                <div class="bg-cyan-500 rounded-full h-6 w-1/3 transition-all duration-1000"></div>
+            </div>
+            <div class="flex justify-between text-lg">
+                <span>KSH 30,000 Raised</span>
+                <span>Goal: KSH 90,000</span>
+            </div>
+        </div>
+    </section> -->
+    <!-- Featured Blog Posts -->
+    <section id="featured-posts" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center">Dental Health Insights</h2>
+            
+            <!-- Kids Articles (Vertical) -->
+        
+
+            <!-- Senior Articles (Horizontal) -->
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <article class="bg-gray-800 rounded-lg overflow-hidden h-full">
+                        <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3" alt="Senior dental care" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Dental Care After 60</h3>
+                            <p class="text-gray-300">An informative 1500-word article about maintaining oral health in your senior years...</p>
+                            <a href="" class="text-cyan-400 hover:text-cyan-300 mt-4 inline-block"><a href="https://go.trydentite.com/dental-health?absrc=Google&abid=730116255735&abcampid=22158707494&abgroupid=172284917005&gclid=Cj0KCQiA4-y8BhC3ARIsAHmjC_GKWioUWUkIYECsfReYZ5_bW3qnspaFrMgrC5IxYRvu66DVkxHeKYUaApAXEALw_wcB&abkwdid=kwd-10216756&gad_source=1">read more</a></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <article class="bg-gray-800 rounded-lg overflow-hidden h-full">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3" alt="Denture maintenance" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">prevent dental cavities</h3>
+                            <p class="text-gray-300">To prevent dental cavities, practice good oral hygiene by brushing teeth at least twice daily with fluoride toothpaste. Floss regularly to remove plaque, limit sugary foods and drinks, and visit your dentist for regular check-ups. Drinking water and using fluoride treatments can also strengthen enamel and prevent decay.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <article class="bg-gray-800 rounded-lg overflow-hidden h-full">
+                        <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?ixlib=rb-4.0.3" alt="Gum health for seniors" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Maintaining Healthy Gums as You Age</h3>
+                            <p class="text-gray-300">As you age, maintaining healthy gums becomes crucial for overall oral health. Regular brushing, flossing, and dental check-ups help prevent gum disease, which can lead to tooth loss. Eating a balanced diet, avoiding smoking, and using fluoride toothpaste also support gum health, keeping your smile bright and strong.</p>
+                    </article>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">About Us</h3>
+                    <p class="text-gray-400">Helping create healthy smiles through community support and modern dental care.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.helpguide.org/" class="text-gray-400 hover:text-cyan-400">Health Guide</a></li>
+
+                        <li><a href="phillhealthy | M-Changa https://www.mchanga.africa/fundraiser/109959" class="text-gray-400 hover:text-cyan-400">M-changa</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Nairobi, Kenya</li>
+                        <li>Email: spencemiles0@gmail.com</li>
+                    </ul>
+                </div>
+                <!-- <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="text-center mt-12 pt-8 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2023 Dental Care Fund. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Fetch blog posts from an API
+        async function fetchBlogPosts() {
+            try {
+                const response = await fetch('https://api.example.com/dental-posts');
+                const posts = await response.json();
+                const blogContainer = document.getElementById('blog-posts');
+                
+                posts.slice(0, 3).forEach(post => {
+                    const article = document.createElement('article');
+                    article.className = 'bg-gray-800 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300';
+                    article.innerHTML = `
+                        <div class="relative">
+                            <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">
+                            <div class="blog-image-overlay absolute inset-0"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">${post.title}</h3>
+                            <p class="text-gray-300">${post.excerpt}</p>
+                            <a href="blog.html#${post.id}" class="inline-block mt-4 text-cyan-400 hover:text-cyan-300">Read More →</a>
+                        </div>
+                    `;
+                    blogContainer.appendChild(article);
+                });
+            } catch (error) {
+                console.error('Error fetching blog posts:', error);
+                // Fallback content
+                document.getElementById('blog-posts').innerHTML = `
+                    <article class="bg-gray-800 rounded-lg overflow-hidden">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Dental Health" class="w-full h-48 object-cover">
+                            <div class="blog-image-overlay absolute inset-0"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">The Importance of Early Dental Care</h3>
+                            <p class="text-gray-300">Discover why maintaining good oral health from an early age is crucial for long-term well-being.</p>
+                            <a href="blog.html" class="inline-block mt-4 text-cyan-400 hover:text-cyan-300">Read More →</a>
+                        </div>
+                    </article>
+                `;
+            }
+        }
+
+        // Initialize blog posts
+        fetchBlogPosts();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

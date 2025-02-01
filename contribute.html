@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phillhealthy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2a9d8f;
+            --secondary-color: #264653;
+            --accent-color: #e9c46a;
+            --background-color: #f4f4f9;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* General Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #46dbe2, #0a2f2b);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo Styling */
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Nav Links */
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links li {
+            display: inline-block;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #ff9800;
+        }
+
+        /* Hamburger Menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: #287d7a;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #2a9d8f, #264653);
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            margin-top: 60px; /* To ensure the nav bar doesn't cover the hero section */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Smiley Animation */
+        .smiley {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            animation: smileyAnimation 2s infinite;
+        }
+
+        @keyframes smileyAnimation {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        /* Floating and Centered Donation Section */
+        .donation-details {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+            color: #333;
+        }
+
+        .donation-details h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .donation-details p {
+            font-size: 1.125rem;
+            margin-bottom: 15px;
+        }
+
+        .donation-details .donation-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .donation-details .btn-close {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .donation-details .btn-close:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Adjust Layout for Small Screens (Mobile and iPad) */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column; /* Stack vertically */
+                padding: 0 10px;
+                height: auto;
+                margin-top: 0; /* No extra space from nav */
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .donation-details {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .smiley {
+                top: 10px;
+                font-size: 3rem;
+            }
+
+            /* Center the elements vertically with proper margin */
+            .hero .text-content,
+            .donation-details {
+                margin-bottom: 20px;
+            }
+
+            .hero .text-content {
+                padding: 0 20px;
+            }
+
+            nav .logo {
+                margin-left: 10px; /* Adjust position for small screens */
+                font-size: 1.2rem; /* Make logo smaller */
+            }
+
+            nav a {
+                font-size: 0.9rem; /* Smaller font size for links */
+            }
+
+            .nav-links {
+                display: none; /* Hide links by default on small screens */
+            }
+
+            .hamburger {
+                display: block; /* Show hamburger icon */
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+
+            .hamburger.active + .nav-links {
+                display: block; /* Show links when hamburger is clicked */
+            }
+        }
+
+        /* Adjust Layout for Large Screens (Desktop) */
+        @media (min-width: 1024px) {
+            .hero {
+                flex-direction: row; /* Align horizontally on desktop */
+                justify-content: space-between;
+                padding: 0 30px;
+            }
+
+            .donation-details {
+                margin-right: 50px;
+            }
+
+            .hero .text-content {
+                max-width: 600px;
+            }
+
+            .smiley {
+                top: 10px;
+                left: 20px;
+            }
+
+            nav .logo {
+                font-size: 1.8rem; /* Slightly larger logo on desktop */
+            }
+
+            nav a {
+                font-size: 1rem; /* Bigger font size for links */
+            }
+
+            .hamburger {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+
+            .nav-links {
+                display: flex; /* Show links by default on larger screens */
+            }
+        }
+        .dog-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            perspective: 500px; /* Adds depth effect */
+        }
+        .dog-head {
+            width: 100%;
+            height: 100%;
+            font-size: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.1s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">phillhealthy</a>
+        <ul class="navbar-links" id="nav-links">
+            <a href="index.html" class="text-gray-700 hover:text-blue-900">Home</a>
+            <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
+            <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+            <a href="contribute.html" class="text-gray-700 hover:text-blue-900">Contribute</a>
+        </ul>
+        <div class="navbar-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+
+            menuToggle.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents immediate closure
+                navLinks.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+        });
+    </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- Hero Section -->
+    <div class="hero">
+        <!-- Smiley Animation -->
+        <div class="dog-container">
+            <div class="dog-head">😀</div>
+        </div>
+    
+        <script>
+            document.addEventListener("mousemove", (event) => {
+                const dogHead = document.querySelector(".dog-head");
+                const container = document.querySelector(".dog-container");
+    
+                // Get the center position of the dog container
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+    
+                // Calculate the rotation angles
+                const deltaX = event.clientX - centerX;
+                const deltaY = event.clientY - centerY;
+                const rotateX = (deltaY / rect.height) * -30; // Limits vertical movement
+                const rotateY = (deltaX / rect.width) * 30;   // Limits horizontal movement
+    
+                // Apply the 3D transformation
+                dogHead.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        </script>
+    
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <!-- Donation Details -->
+        <div class="donation-details">
+            <h3>Thank You For Your Support!</h3>
+            <p>To make a contribution, please send your desired amount to the M-Pesa number below:</p>
+            <p class="donation-amount">+254790617211</p>
+            <p class="donation-Paypal">Paypal - spencemiles0@gmail.com</p>
+            <p>Amount: <span id="donationAmount">___</span> KSH</p>
+            <button class="btn-close" onclick="alert('Thank you for your contribution!')">Done</button>
+        </div>
+        <!-- Text Content -->
+        <div class="text-content">
+            <h1>Help Us Make Dental Care Accessible</h1>
+            <p>Join us in providing affordable dental services to those in need. Your contribution can change lives.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">About Us</h3>
+                    <p class="text-gray-400">Helping create healthy smiles through community support and modern dental care.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.helpguide.org/" class="text-gray-400 hover:text-cyan-400">Health Guide</a></li>
+                        <li><a href="contribute.html" class="text-gray-400 hover:text-cyan-400">Donate</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Nairobi, Kenya</li>
+                        <li>Email: spencemiles0@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12 pt-8 border-t border-gray-800">
+                <p class="text-gray-400">&copy; 2023 Dental Care Fund. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
