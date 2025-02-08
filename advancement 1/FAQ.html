@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhillHealthy - FAQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(33, 69, 75);
+            text-align: center;
+            color: white;
+        }
+
+        /* Logo Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #459998, #80d2ed);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Nav Links */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #459998, #4dc6c8);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Nav Links */
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar-links li {
+            display: inline-block;
+        }
+        
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+            
+        }
+        
+        .navbar-links a:hover {
+            color: #ff9800;
+        }
+        
+        /* Hamburger Menu */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: linear-gradient(45deg, #459998, #4dc6c8);
+                top: 60px;
+                left: 0;  /* Align the dropdown to the left of the screen */
+                width: 50%;  /* This makes it take up the full width */
+                padding: 15px;
+                margin-left: 0;
+            }
+        
+            .navbar-links.active {
+                display: flex;
+            }
+        
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+        h2 {
+            color: #333;
+           text-transform: capitalize;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            background: #e0f7fa;
+        }
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .faq-answer {
+            display: none;
+            font-size: 16px;
+            color: #333;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <body class="bg-gray-900 text-white">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="" class="navbar-logo">Phillhealthy</a>
+            <ul class="navbar-links" id="nav-links">
+                <a href="index.html" class="text-gray-700 hover:text-blue-900">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+                <a href="contribute.html" class="text-gray-700 hover:text-blue-900">Contribute</a>
+            </ul>
+            <div class="navbar-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menu-toggle");
+                const navLinks = document.getElementById("nav-links");
+    
+                menuToggle.addEventListener("click", function (event) {
+                    event.stopPropagation(); // Prevents immediate closure
+                    navLinks.classList.toggle("active");
+                });
+    
+                // Close dropdown when clicking outside
+                document.addEventListener("click", function (event) {
+                    if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                        navLinks.classList.remove("active");
+                    }
+                });
+            });
+        </script>
+        
+    <div class="faq-container">
+        <h2><b>Frequently Asked Questions</b></h2>
+        <div class="faq-item">
+            <div class="faq-question">How do I donate?</div>
+            <div class="faq-answer">You can donate via M-Pesa, PayPal, Crypto, or Bank Transfer. Visit our Donate page for details.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How do I know my money is being used properly?</div>
+            <div class="faq-answer">We provide full transparency with regular updates, impact reports, and financial breakdowns.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Can I start a fundraiser for someone?</div>
+            <div class="faq-answer">Yes! You can start a personal fundraiser for a dental patient in need. Visit our Fundraising page for steps.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How do investments work in PhillHealthy?</div>
+            <div class="faq-answer">We allocate 30% of funds into sustainable investments (SACCOs, MMFs, Crypto) to ensure long-term charity growth.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Why did you create PhillHealthy?</div>
+            <div class="faq-answer">PhillHealthy was created to make dental care accessible to those who can't afford it, bridging the gap in healthcare.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What drives PhillHealthy?</div>
+            <div class="faq-answer">Our passion for helping communities, ensuring everyone has access to proper dental care.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Who are your partners?</div>
+            <div class="faq-answer">We are working with donors, dental hospitals, and investors to expand our reach.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Will I benefit from donating?</div>
+            <div class="faq-answer">While the main goal is charity, donors receive updates on their impact and potential tax benefits.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Where are you located?</div>
+            <div class="faq-answer">We are based in Kenya and operate primarily through our online platform.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How does PhillHealthy choose patients who need dental help?</div>
+            <div class="faq-answer">Patients are selected based on their financial need and the severity of their dental issues. We prioritize those who are unable to afford treatment and have no other means of support.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How does PhillHealthy ensure the donations go to the right cause?</div>
+            <div class="faq-answer">We maintain full transparency by tracking and reporting every donation, and funds are sent directly to accredited dental clinics and professionals treating our patients.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I donate anonymously?</div>
+            <div class="faq-answer">Yes, we respect your privacy and allow anonymous donations. You can choose to remain anonymous when donating.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Are the donations tax-deductible?</div>
+            <div class="faq-answer">Yes, donations may be tax-deductible depending on your location and tax laws. Please consult a tax professional for further details.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I apply for help from PhillHealthy?</div>
+            <div class="faq-answer">You can apply for help through our website by submitting an application form detailing your dental needs and financial situation.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What dental treatments are covered by PhillHealthy?</div>
+            <div class="faq-answer">We cover a range of dental treatments including, but not limited to, cleanings, extractions, fillings, root canals, and braces.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How long does it take to receive help after applying?</div>
+            <div class="faq-answer">We process applications within 1-2 weeks, but the time may vary depending on the urgency of your case and available funds.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I volunteer with PhillHealthy?</div>
+            <div class="faq-answer">We welcome volunteers! You can sign up on our website to assist with outreach, event planning, or even providing dental services if you’re a qualified professional.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I contribute dental products to PhillHealthy?</div>
+            <div class="faq-answer">Yes, we accept donations of dental products such as toothbrushes, toothpaste, and other hygiene products to distribute to those in need.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you only help people in specific locations?</div>
+            <div class="faq-answer">Currently, we focus on areas where we can have the most impact. However, we are expanding our outreach to other regions. Please check our website for updates.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is PhillHealthy a non-profit organization?</div>
+            <div class="faq-answer">Yes, PhillHealthy is a registered non-profit organization, focused on improving dental care access for those in need.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I sponsor a specific patient’s treatment?</div>
+            <div class="faq-answer">Yes, you can choose to sponsor an individual’s dental treatment. You will be updated on their progress and the impact of your donation.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I track the impact of my donation?</div>
+            <div class="faq-answer">We provide regular updates through our website, newsletters, and email about how donations are being used and the difference they’re making.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I know if my donation was received?</div>
+            <div class="faq-answer">You will receive an acknowledgment email or a receipt, and you can track your donation through your account on our website.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you accept dental insurance?</div>
+            <div class="faq-answer">PhillHealthy operates primarily on donations, but we also work with some dental clinics that may accept insurance for specific treatments.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I spread the word about PhillHealthy?</div>
+            <div class="faq-answer">You can help by sharing our website, donating, volunteering, or hosting local fundraising events. Every little bit helps!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What happens if a patient doesn’t use the funds for treatment?</div>
+            <div class="faq-answer">We closely monitor all donations to ensure that funds go directly to the dental services needed. If there is any misuse, the funds are redirected to other patients in need.</div>
+        </div>
+
+        <!-- Additional 20 FAQ -->
+        <!-- You can add the next 20 questions and answers by repeating the same structure above. -->
+
+    </div>
+    </div>
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                let answer = item.querySelector('.faq-answer');
+                let isVisible = answer.style.display === 'block';
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                answer.style.display = isVisible ? 'none' : 'block';
+            });
+        });
+    </script>
+    
+</html>
