@@ -401,40 +401,7 @@ input[type="checkbox"] {
         }
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    let touchStartX = 0;
-    let touchEndX = 0;
 
-    // Detect when touch starts
-    document.addEventListener("touchstart", function (event) {
-        touchStartX = event.touches[0].clientX;
-    });
-
-    // Detect when touch ends
-    document.addEventListener("touchend", function (event) {
-        touchEndX = event.changedTouches[0].clientX;
-        handleSwipe();
-    });
-
-    // Detect mouse drag for touchpad users
-    document.addEventListener("mousedown", function (event) {
-        touchStartX = event.clientX;
-    });
-
-    document.addEventListener("mouseup", function (event) {
-        touchEndX = event.clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeDistance = touchStartX - touchEndX;
-
-        // If swipe distance is negative and greater than 50px (right swipe), go back
-        if (swipeDistance < -50) {
-            window.history.back();
-        }
-    }
-});
 
         </script>
         
