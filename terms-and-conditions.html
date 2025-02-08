@@ -100,7 +100,50 @@ body {
         display: flex;
     }
 }
+.return-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #2a9d8f, #264653); /* Gradient background */
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    animation: zoomInOut 2s infinite ease-in-out; /* Zoom animation */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transform and background-color transition */
+}
 
+/* Hover effect to make the button pop */
+.return-btn:hover {
+    background: linear-gradient(to right, #1e7b7b, #1d3b3b); /* Darker gradient on hover */
+    transform: scale(1.1); /* Scale up smoothly */
+}
+
+/* Zoom in and out animation */
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Sticky button when scrolling */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: none; /* Disable the zooming animation when it's sticky */
+}
 header {
     background-color: #459998;
     color: white;
@@ -186,6 +229,23 @@ footer p {
         <section class="terms">
             <br>
             <br>
+             <button id="returnButton" class="return-btn">Return to Form</button>
+
+<script>
+    // JavaScript to handle the sticky effect on scroll
+    window.onscroll = function() {stickyButton()};
+
+    var button = document.getElementById("returnButton");
+    var sticky = button.offsetTop;
+
+    function stickyButton() {
+        if (window.pageYOffset > sticky) {
+            button.classList.add("sticky");
+        } else {
+            button.classList.remove("sticky");
+        }
+    }
+</script>
             <br>
             <h2>Introduction</h2>
             <p>Welcome to PhillHealthy, a platform dedicated to assisting individuals in need of dental care. By using our services, you agree to comply with these terms and conditions. Please read them carefully.</p>
