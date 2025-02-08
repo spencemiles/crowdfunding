@@ -352,9 +352,29 @@ input[type="checkbox"] {
             <h2>Consent & Acknowledgment</h2>
             <label>
             <label>
-    <input type="checkbox" name="terms" required>
-    I agree to the <a href="terms-and-conditions.html" target="_blank">terms and onditions</a> of PhillHealthy.
+    <input type="checkbox" name="terms" required class="checkbox-style">
+    I agree to the <a href="terms-and-conditions.html" target="_blank" class="terms-link">terms and conditions</a> of PhillHealthy.
 </label>
+
+<style>
+    /* Style for the checkbox */
+    .checkbox-style {
+        accent-color: blue; /* Changes the checkbox color to blue */
+    }
+
+    /* Style for the terms link */
+    .terms-link {
+        color: blue;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Hover effect for the link */
+    .terms-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
 
 
             </label>
