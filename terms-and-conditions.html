@@ -518,7 +518,33 @@ footer p {
                     behavior: 'smooth'
                 });
             });
+        });// Animate statistics on scroll
+        function animateValue(id, start, end, duration) {
+            let startTimestamp = null;
+            const element = document.getElementById(id);
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for statistics animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue("donorsCount", 0, 500, 2000);
+                    animateValue("smilesRestored", 0, 300, 2000);
+                    document.getElementById("amountRaised").innerHTML = "2.5M";
+                }
+            });
         });
+
+        observer.observe(document.querySelector('#donorsCount'));
     </script>
 
 </body>
